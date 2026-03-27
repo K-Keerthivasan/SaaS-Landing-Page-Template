@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -107,7 +107,7 @@ function MobileNavSheet({
 
 export function MarketingHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/60 bg-[#FAFAFA]/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#09090f]/75">
+    <header className="sticky top-[var(--k2-demo-top-offset)] z-30 border-b border-white/60 bg-[#FAFAFA]/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#09090f]/75">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
         <BrandLockup />
         <nav className="hidden items-center gap-8 lg:flex">
@@ -168,7 +168,7 @@ export function DashboardShell({
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#fafafa_0%,#f4f3ff_100%)] transition-colors dark:bg-[radial-gradient(circle_at_top,rgba(108,71,255,0.18),transparent_30%),linear-gradient(180deg,#09090f_0%,#131321_100%)]">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-6 lg:px-6">
-        <header className="glass-panel sticky top-4 z-20 flex items-center justify-between rounded-[1.75rem] border border-white/70 bg-white/82 px-4 py-3 dark:border-white/10 dark:bg-white/6 lg:hidden">
+        <header className="glass-panel sticky top-[calc(var(--k2-demo-top-offset)+1rem)] z-20 flex items-center justify-between rounded-[1.75rem] border border-white/70 bg-white/82 px-4 py-3 dark:border-white/10 dark:bg-white/6 lg:hidden">
           <BrandLockup admin={admin} />
           <div className="flex items-center gap-2">
             <ThemeToggle className="px-3" />
@@ -293,3 +293,5 @@ export function InlineBackButton() {
     </Button>
   );
 }
+
+

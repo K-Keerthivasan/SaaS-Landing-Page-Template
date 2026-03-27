@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import { AppThemeProvider } from "@/components/admin/admin-theme";
+import { DemoBanner } from "@/components/saas/demo-banner";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -29,8 +30,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("h-full antialiased", inter.variable, jakarta.variable, geistMono.variable)}>
-      <body className="min-h-full font-sans text-foreground">
-        <AppThemeProvider>{children}</AppThemeProvider>
+      <body className="k2-demo-shell min-h-full font-sans text-foreground">
+        <AppThemeProvider>
+          <DemoBanner />
+          {children}
+        </AppThemeProvider>
       </body>
     </html>
   );

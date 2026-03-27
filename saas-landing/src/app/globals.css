@@ -49,6 +49,8 @@
 }
 
 :root {
+  --k2-demo-top-offset: 56px;
+  --k2-demo-bottom-offset: 0px;
   --background: oklch(0.989 0 0);
   --foreground: oklch(0.25 0.02 265);
   --card: oklch(1 0 0 / 82%);
@@ -81,6 +83,13 @@
   --sidebar-accent-foreground: oklch(0.28 0.02 265);
   --sidebar-border: oklch(0.9 0.01 265 / 85%);
   --sidebar-ring: oklch(0.56 0.24 287 / 65%);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --k2-demo-top-offset: 40px;
+    --k2-demo-bottom-offset: 33px;
+  }
 }
 
 .dark {
@@ -126,6 +135,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    padding-top: calc(var(--k2-demo-top-offset) + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(var(--k2-demo-bottom-offset) + env(safe-area-inset-bottom, 0px));
     background-image:
       linear-gradient(to right, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
@@ -133,11 +144,23 @@
     background-size: 64px 64px, 64px 64px, auto;
     background-attachment: fixed;
   }
+  body.k2-demo-shell {
+    scroll-padding-top: calc(var(--k2-demo-top-offset) + 1rem);
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
   ::selection {
     background: rgba(108, 71, 255, 0.18);
+  }
+}
+
+@keyframes k2pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
   }
 }
 
